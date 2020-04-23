@@ -18,12 +18,23 @@ public class Factura {
 	}
 
 
-	public String mostrarDatos() {
-		String salida="";
-		return salida+"El precio total de la compra con un descuento de " +5+"% y un iva de :"+
-				21+ "% es: "+this.precioTotal;
-		
+	public double getPrecioBase() {
+		return precioBase;
 	}
-	
+
+
+	public double getPrecioTotal() {
+		return precioTotal;
+	}
+
+
+	public double getIva() {
+		return Iva;
+	}
+
+
+	public double getDescuento() {
+		return descuento;
+	}
 
 }

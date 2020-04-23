@@ -14,7 +14,8 @@ public class Compra {
 		Factura f01= new Factura();
 		f01.generarFactura(c01);
 		
-		System.out.println(f01.mostrarDatos());
+		MostrarDatos m01= new MostrarDatos();
+		System.out.println(m01.mostrar(f01));
 
 	}
 
