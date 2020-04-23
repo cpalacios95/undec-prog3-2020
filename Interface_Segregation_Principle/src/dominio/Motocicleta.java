@@ -1,6 +1,6 @@
 package dominio;
 
-public class Motocicleta implements Vehiculo{
+public class Motocicleta implements VehiculoSinPuertas{
 
 	private int motor;
 	private int ancho;
@@ -18,11 +18,6 @@ public class Motocicleta implements Vehiculo{
 		else
 			this.categoria=2;
 		
-	}
-	@Override
-	public String colorPuertas() {
-		// TODO Auto-generated method stub
-		return "Es una motocicleta por lo tanto no tiene puertas";
 	}
 
 	
