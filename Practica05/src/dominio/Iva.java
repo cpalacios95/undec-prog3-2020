@@ -15,6 +15,11 @@ public class Iva {
 	public void setValor(int valor) {
 		this.valor = valor;
 	}
+
+	public double obtenerIva(double precioBase) {
+		
+		return (precioBase * this.valor)/100;
+	}
 	
 	
 }

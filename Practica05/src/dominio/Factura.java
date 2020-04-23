@@ -9,10 +9,11 @@ public class Factura {
 	
 	
 	public void generarFactura(Cliente c01) {
-	this.precioBase= c01.obtenerTotal();
-	this.Iva= (this.precioBase*21)/100;
-	this.descuento= (this.precioBase*5)/100;
-	this.precioTotal= (this.Iva+this.precioBase)-this.descuento;
+		Iva i01= new Iva();
+		this.precioBase= c01.obtenerTotal();
+		this.Iva= i01.obtenerIva(precioBase);
+		this.descuento= (this.precioBase*5)/100;
+		this.precioTotal= (this.Iva+this.precioBase)-this.descuento;
 	}
 
 
