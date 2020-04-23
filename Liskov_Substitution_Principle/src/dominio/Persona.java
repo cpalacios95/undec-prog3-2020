@@ -5,12 +5,10 @@ public class Persona {
     private String nombre;
     private String apellidos;
     private int dni;
-    private int nrotarjeta;
-    public Persona( String nombre, String apellidos, int dni, int nrotarjerta) {
+    public Persona( String nombre, String apellidos, int dni) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.dni=dni;
-        this.nrotarjeta=nrotarjeta;
     }
 
     public String getNombre() {
@@ -42,18 +40,4 @@ public class Persona {
 		this.dni = dni;
 	}
 
-
-	public int getNrotarjeta() {
-		return nrotarjeta;
-	}
-
-
-	public void setNrotarjeta(int nrotarjeta) {
-		this.nrotarjeta = nrotarjeta;
-	}
-
-
-	public void pagarCompra() {   
-        System.out.println("mi dni es "+ getDni()+ ", pago con la tarjeta nro: "+this.nrotarjeta);
-    }
 }

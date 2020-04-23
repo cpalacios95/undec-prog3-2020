@@ -3,11 +3,8 @@ package dominio;
 public class Niño extends Persona{
 
 	
-	public Niño(String nombre, String apellidos, int dni, int nrotarjerta) {
-		super(nombre, apellidos, dni, nrotarjerta);
+	public Niño(String nombre, String apellidos, int dni) {
+		super(nombre, apellidos, dni);
 	}
 
-	public void pagarCompra() {
-		//No utilizado
-	}
 }
