@@ -1,5 +1,8 @@
 package test;
 
+import dominio.Comandante;
+import exception.ExceptionComandante;
+import gestores.GestorAerolinea;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

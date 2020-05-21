@@ -1,6 +1,9 @@
 package test;
 
 
+import dominio.Aeropuerto;
+import exception.ExceptionAeropuerto;
+import gestores.GestorAeropuerto;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

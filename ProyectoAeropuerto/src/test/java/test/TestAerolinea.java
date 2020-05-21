@@ -1,12 +1,21 @@
 package test;
 
+import dominio.Aerolinea;
+import dominio.Avion;
+import dominio.CoPiloto;
+import dominio.Comandante;
+import exception.ExceptionAerolinea;
+import exception.ExceptionAvion;
+import exception.ExceptionCoPiloto;
+import exception.ExceptionComandante;
+import gestores.GestorAeropuerto;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestAerolineas {
+public class TestAerolinea {
 
     @Test
     public void test01CargarAeorilineaSinError(){
@@ -323,7 +332,7 @@ public class TestAerolineas {
             //set up
             Aerolinea a01 = new Aerolinea("30-64140555-4", "AR", "Aerolineas Argentinas", "1949-05-14");
             CoPiloto c01= new CoPiloto ("Cardozo", "Franco Abel", "21-29878766-0", "1958-10-21", 164863);
-            CoPiloto c02= new CoPiloto ("Conte", "Ezequiel", "19-14569874-1", "1967-02-12", 1112245);
+            CoPiloto c02= new CoPiloto("Conte", "Ezequiel", "19-14569874-1", "1967-02-12", 1112245);
             assertTrue(a01.addCoPiloto(c01));
             assertTrue(a01.addCoPiloto(c02));
         }catch (ExceptionAerolinea | ExceptionCoPiloto e){}

@@ -1,5 +1,8 @@
 package test;
 
+import dominio.CoPiloto;
+import exception.ExceptionCoPiloto;
+import gestores.GestorAerolinea;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -13,7 +16,7 @@ public class TestCoPiloto {
             //set up
             GestorAerolinea gesA= GestorAerolinea.getInstance();
             gesA.clear();
-            CoPiloto c01= new CoPiloto ("Cardozo", "Franco Abel", "21-29878766-0", "1958-10-21", 164863);
+            CoPiloto c01= new CoPiloto("Cardozo", "Franco Abel", "21-29878766-0", "1958-10-21", 164863);
             CoPiloto c02= new CoPiloto ("Conte", "Ezequiel", "19-14569874-1", "1967-02-12", 1112245);
             CoPiloto c03= new CoPiloto ("Nieto", "Facundo Martin", "10-12569898-3", "1988-01-21", 112121);
             CoPiloto c04= new CoPiloto ("Vargas", "Alexis Agustin", "11-31100258-0", "1960-11-13", 123698);
