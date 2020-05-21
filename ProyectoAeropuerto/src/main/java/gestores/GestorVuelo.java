@@ -1,8 +1,11 @@
 package gestores;
 
+import dominio.Avion;
 import dominio.Vuelo;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class GestorVuelo {
 
@@ -40,4 +43,25 @@ public class GestorVuelo {
         }
         return salida;
     }
+
+    public ArrayList<Vuelo> buscarVueloPorFechaDeSalida(String s) {
+        ArrayList<Vuelo> devolver= new ArrayList<Vuelo>();
+        LocalDate fecha= LocalDate.parse(s);
+        for (Vuelo e: this.misVuelo){
+            if(e.getFechaSal().equals(fecha));
+                devolver.add(e);
+        }
+        return devolver;
+    }
+
+    public ArrayList<Vuelo> buscarVueloPorFechaDeLlegada(String s) {
+        ArrayList<Vuelo> devolver= new ArrayList<Vuelo>();
+        LocalDate fecha= LocalDate.parse(s);
+        for (Vuelo e: this.misVuelo){
+            if(e.getFechaLle().equals(fecha));
+            devolver.add(e);
+        }
+        return devolver;
+    }
+
 }

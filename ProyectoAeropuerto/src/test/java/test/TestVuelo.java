@@ -5,6 +5,9 @@ import exception.*;
 import gestores.GestorVuelo;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestVuelo {
@@ -77,4 +80,98 @@ public class TestVuelo {
             aeropuerto.printStackTrace();
         }
     }
+
+    @Test
+    public void test03BuscarVueloPorFechaSalida(){
+        try {
+            //set up
+            GestorVuelo ges= GestorVuelo.getInstance();
+            ges.clear();
+            Aerolinea a01 = new Aerolinea("30-64140555-4", "AR", "Aerolineas Argentinas", "1949-05-14");
+            Comandante piloto01 = new Comandante("Gallegos Espejo", "Yamil Sebastian", "17-34896124-3", "1980-08-03", 190283);
+            CoPiloto copiloto01 = new CoPiloto("Cardozo", "Franco Abel", "21-29878766-0", "1958-10-21", 164863);
+            Avion av01= new Avion("LV-CTC", "Boeing 737-800", 182, 1994);
+            Vuelo v01 = new Vuelo(1234, "2020-10-12", "08:30", "2020-10-12", "13:21", a01);
+            Vuelo v02 = new Vuelo(5541, "2020-10-12", "10:30", "2020-10-12", "21:21", a01);
+            Vuelo v03 = new Vuelo(4599, "2020-11-01", "23:00", "2020-11-02", "05:30", a01);
+            Aeropuerto aero01 = new Aeropuerto("BRC", "Aeropuerto Internacional Teniente Luis Candelaria", "San Carlos de Bariloche", 6480);
+            Aeropuerto aero02 = new Aeropuerto("JUJ", "Aeropuerto Internacional Gobernador Horacio Guzman", "San Salvador de Jujuy", 2112);
+            //exercise
+            a01.clear();
+            a01.addComandante(piloto01);
+            a01.addCoPiloto(copiloto01);
+            a01.addAvion(av01);
+            v01.addAeropuertoSalida(aero01);
+            v01.addAeropuertoLlegada(aero02);
+            ges.addVuelo(v01);
+            v02.addAeropuertoSalida(aero01);
+            v02.addAeropuertoLlegada(aero02);
+            ges.addVuelo(v02);
+            ges.addVuelo(v03);
+            ArrayList<Vuelo> vuelosprueba= new ArrayList<Vuelo>();
+            vuelosprueba.add(v01);
+            vuelosprueba.add(v02);
+            vuelosprueba.add(v03);
+            //verify
+            assertEquals(vuelosprueba, ges.buscarVueloPorFechaDeSalida("2020-11-01"));
+        } catch (ExceptionAvion exceptionAvion) {
+            exceptionAvion.printStackTrace();
+        } catch (ExceptionCoPiloto exceptionCoPiloto) {
+            exceptionCoPiloto.printStackTrace();
+        } catch (ExceptionComandante exceptionComandante) {
+            exceptionComandante.printStackTrace();
+        } catch (ExceptionAerolinea aerolinea) {
+            aerolinea.printStackTrace();
+        } catch (ExceptionAeropuerto aeropuerto) {
+            aeropuerto.printStackTrace();
+        }
+    }
+
+    @Test
+    public void test04BuscarVueloPorFechaLlegada(){
+        try {
+            //set up
+            GestorVuelo ges= GestorVuelo.getInstance();
+            ges.clear();
+            Aerolinea a01 = new Aerolinea("30-64140555-4", "AR", "Aerolineas Argentinas", "1949-05-14");
+            Comandante piloto01 = new Comandante("Gallegos Espejo", "Yamil Sebastian", "17-34896124-3", "1980-08-03", 190283);
+            CoPiloto copiloto01 = new CoPiloto("Cardozo", "Franco Abel", "21-29878766-0", "1958-10-21", 164863);
+            Avion av01= new Avion("LV-CTC", "Boeing 737-800", 182, 1994);
+            Vuelo v01 = new Vuelo(1234, "2020-10-12", "08:30", "2020-10-12", "13:21", a01);
+            Vuelo v02 = new Vuelo(5541, "2020-10-12", "10:30", "2020-10-12", "21:21", a01);
+            Vuelo v03 = new Vuelo(4599, "2020-11-01", "23:00", "2020-11-02", "05:30", a01);
+            Aeropuerto aero01 = new Aeropuerto("BRC", "Aeropuerto Internacional Teniente Luis Candelaria", "San Carlos de Bariloche", 6480);
+            Aeropuerto aero02 = new Aeropuerto("JUJ", "Aeropuerto Internacional Gobernador Horacio Guzman", "San Salvador de Jujuy", 2112);
+            //exercise
+            a01.clear();
+            a01.addComandante(piloto01);
+            a01.addCoPiloto(copiloto01);
+            a01.addAvion(av01);
+            v01.addAeropuertoSalida(aero01);
+            v01.addAeropuertoLlegada(aero02);
+            ges.addVuelo(v01);
+            v02.addAeropuertoSalida(aero01);
+            v02.addAeropuertoLlegada(aero02);
+            ges.addVuelo(v02);
+            ges.addVuelo(v03);
+            ArrayList<Vuelo> vuelosprueba= new ArrayList<Vuelo>();
+            vuelosprueba.add(v01);
+            vuelosprueba.add(v02);
+            vuelosprueba.add(v03);
+            //verify
+            assertEquals(vuelosprueba, ges.buscarVueloPorFechaDeLlegada("2020-11-01"));
+        } catch (ExceptionAvion exceptionAvion) {
+            exceptionAvion.printStackTrace();
+        } catch (ExceptionCoPiloto exceptionCoPiloto) {
+            exceptionCoPiloto.printStackTrace();
+        } catch (ExceptionComandante exceptionComandante) {
+            exceptionComandante.printStackTrace();
+        } catch (ExceptionAerolinea aerolinea) {
+            aerolinea.printStackTrace();
+        } catch (ExceptionAeropuerto aeropuerto) {
+            aeropuerto.printStackTrace();
+        }
+    }
+
+
 }
