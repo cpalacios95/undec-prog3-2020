@@ -6,6 +6,8 @@ import exception.ExceptionAeropuerto;
 import gestores.GestorAeropuerto;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestAeropuerto {
@@ -302,4 +304,25 @@ public class TestAeropuerto {
         }catch (ExceptionAeropuerto e){}
     }
 
+    @Test
+    public void test21BuscarAeropuertoPorCodigoIATA(){
+        try {
+            //set up
+            GestorAeropuerto gesA= GestorAeropuerto.getInstance();
+            gesA.clear();
+            Aeropuerto a01= new Aeropuerto("BRC", "Aeropuerto Internacional Teniente Luis Candelaria", "San Carlos de Bariloche", 6480);
+            Aeropuerto a02= new Aeropuerto("JUJ", "Aeropuerto Internacional Gobernador Horacio Guzman", "San Salvador de Jujuy", 2112);
+            Aeropuerto a03= new Aeropuerto("LRJ", "Aeropuerto Capitán Vicente Almandos Almonacid", "La Rioja", 5360);
+            Aeropuerto a04= new Aeropuerto("MDZ", "Aeropuerto Internacional de Mendoza", "Mendoza", 1451);
+            //exercise
+            gesA.addAeropuerto(a01);
+            gesA.addAeropuerto(a02);
+            gesA.addAeropuerto(a03);
+            gesA.addAeropuerto(a04);
+            ArrayList<Aeropuerto> aeropuertosPrueba= new ArrayList<Aeropuerto>();
+            aeropuertosPrueba.add(a01);
+            //verify
+            assertEquals(aeropuertosPrueba, gesA.buscarAeropuerto("BRC"));
+        }catch (ExceptionAeropuerto e){}
+    }
 }

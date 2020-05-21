@@ -54,6 +54,14 @@ public class GestorAeropuerto {
 
     public void clear(){
         this.misAeropuertos.clear();
-        this.misAeropuertos.clear();
+    }
+
+    public ArrayList<Aeropuerto> buscarAeropuerto(String codigo) {
+        ArrayList<Aeropuerto> devolver= new ArrayList<Aeropuerto>();
+        for(Aeropuerto e: this.misAeropuertos){
+            if(e.getCodigoIata().equals(codigo))
+               devolver.add(e);
+        }
+        return devolver;
     }
 }
